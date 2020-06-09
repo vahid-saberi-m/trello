@@ -1,7 +1,7 @@
 const initialState= [
     {
         id: 0,
-        title: "Last epizode",
+        title: "Last episode",
         cards:[
             {
                 id: 0,
@@ -10,6 +10,24 @@ const initialState= [
             {
                 id: 1,
                 text: "ksdfjlasdkfjlaskdfj lkasd asdf asdf asdf "
+            },
+        ],
+    },
+    {
+        id: 1,
+        title: "next episode",
+        cards:[
+            {
+                id: 0,
+                text: "hi this is the first card",
+            },
+            {
+                id: 1,
+                text: "ksdf asdf asdf "
+            },
+            {
+                id: 2,
+                text: "ksd ;, oj k [po  "
             },
         ],
     }

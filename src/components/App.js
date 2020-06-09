@@ -6,8 +6,10 @@ class App extends Component{
         const {lists}= this.props
         console.log(lists)
         return(
-            <div className="App">
-                { lists.map(list=><TrelloList cards={list.cards} title={list.title} key={list.id}  />)}
+            <div className="App" style={styles.listContainer}>
+                { lists.map(list=>
+                    <TrelloList cards={list.cards} title={list.title} key={list.id}  />)
+                }
             </div>
     )
     }
@@ -17,5 +19,11 @@ const mapStateToProps= state => ({
     lists: state.lists
 })
 
+const styles = {
+    listContainer:{
+        display: 'flex',
+
+    }
+}
 
 export default connect(mapStateToProps)(App)
