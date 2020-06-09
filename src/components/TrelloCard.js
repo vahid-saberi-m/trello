@@ -18,6 +18,7 @@ const TrelloCard = ({text}) => {
 const styles = {
     cardContainer:{
         margin: 5,
+        minWidth:272
     }
 }
 
