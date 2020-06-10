@@ -1,7 +1,8 @@
 import React from "react";
 import Icon from "@material-ui/core/Icon";
 import {Card,Button,TextareaAutosize} from "@material-ui/core";
-
+import {connect} from "react-redux"
+import {addList} from "../actions";
 
 class TrelloActionButton extends React.Component {
     state={
@@ -16,6 +17,14 @@ class TrelloActionButton extends React.Component {
     }
     handleChange=(e)=>{
         this.setState({text: e.target.value})
+    }
+    handleAddList=e=>{
+        const {dispatch}= this.props
+        const {text} = this.state
+        if(text){
+            dispatch(addList(text))
+        }
+        return
     }
      renderForm=()=>{
         const {list}=this.props
@@ -54,7 +63,10 @@ class TrelloActionButton extends React.Component {
                  />
              </Card>
              <div style={styles.buttonContainer}>
-                 <Button variant="contained" style={{backgroundColor:'#5aac44', color:'white'}}>
+                 <Button
+                     onMouseDown={this.handleAddList}
+                     variant="contained"
+                     style={{backgroundColor:'#5aac44', color:'white'}}>
                      {buttonTitle}
                  </Button>
                  <Icon style={{cursor:'pointer'}}>close</Icon>
@@ -63,14 +75,14 @@ class TrelloActionButton extends React.Component {
     }
     renderAddButton() {
         const {list} = this.props;
-        const buttonText = list ? " another card" : " another list"
+        const buttonText = list ? "Add another list" : "Add another card"
         const styles = {
             buttonStyle: {
                 backgroundColor: list ? "rgba(0,0,0,.15)" : "inherit",
                 color: list ? "white" : "inherit",
                 opacity: list ? 1 : 0.5,
                 display: 'flex',
-                alignment: 'center',
+                alignItems: 'center',
                 cursor:'pointer',
                 borderRadius: 3,
                 height:36,
@@ -94,4 +106,4 @@ class TrelloActionButton extends React.Component {
 
 
 }
-export default TrelloActionButton
+export default connect() (TrelloActionButton)

@@ -20,7 +20,8 @@ const styles={
         borderRadius:3,
         width: 300,
         paddingBottom:10,
-        margin: 5
+        margin: 5,
+        height:"100%"
     },
     listTitle:{
         marginLeft: 10
